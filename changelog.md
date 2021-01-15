@@ -6,6 +6,7 @@
 - Autotune TCP 'buffer' for outgoing TCP connections in vmq_cluster_node module
 - Allow custom option for HTTPS endpoints
 - Adds PEM validation of certificate files in server and webhooks schemas
+- Upgrade rebar3 and associated lock file
 
 ## VerneMQ 1.11.0
 
