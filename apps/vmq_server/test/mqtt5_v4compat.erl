@@ -21,7 +21,7 @@
 
 -include_lib("vmq_commons/include/vmq_types.hrl").
 
--define(TIMEOUT, 30000).
+-define(TIMEOUT, 60000).
 
 do_client_connect(Connect, Connack, Opts, Config) ->
     do_client_connect_(protover(Config), Connect, Connack, Opts).
