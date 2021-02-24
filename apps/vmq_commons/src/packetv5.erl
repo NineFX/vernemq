@@ -3,6 +3,7 @@
 -export([do_client_connect/2,
          do_client_connect/3,
          expect_frame/2,
+         expect_frame/4,
          receive_frame/1,
          receive_frame/3,
          receive_frame/4]).
