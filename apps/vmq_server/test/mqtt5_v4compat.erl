@@ -21,6 +21,8 @@
 
 -include_lib("vmq_commons/include/vmq_types.hrl").
 
+-define(TIMEOUT, 30000).
+
 do_client_connect(Connect, Connack, Opts, Config) ->
     do_client_connect_(protover(Config), Connect, Connack, Opts).
 
@@ -33,9 +35,9 @@ expect_packet(Socket, Name, Frame, Config) ->
     expect_packet_(protover(Config), Socket, Name, Frame).
 
 expect_packet_(4, Socket, Name, Packet) ->
-    packet:expect_packet(Socket, Name, Packet);
+    packet:expect_packet(Socket, Name, Packet, ?TIMEOUT);
 expect_packet_(5, Socket, _Name, ExpectedPacket) ->
-    packetv5:expect_frame(Socket, ExpectedPacket).
+    packetv5:expect_frame(gen_tcp, Socket, ExpectedPacket, ?TIMEOUT).
 
 gen_connect(ClientId, Opts, Config) ->
     gen_connect_(protover(Config), ClientId, Opts).
