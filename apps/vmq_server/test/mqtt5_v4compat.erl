@@ -35,7 +35,7 @@ expect_packet(Socket, Name, Frame, Config) ->
     expect_packet_(protover(Config), Socket, Name, Frame).
 
 expect_packet_(4, Socket, Name, Packet) ->
-    packet:expect_packet(Socket, Name, Packet, ?TIMEOUT);
+    packet:expect_packet(gen_tcp, Socket, Name, Packet, ?TIMEOUT);
 expect_packet_(5, Socket, _Name, ExpectedPacket) ->
     packetv5:expect_frame(gen_tcp, Socket, ExpectedPacket, ?TIMEOUT).
 
